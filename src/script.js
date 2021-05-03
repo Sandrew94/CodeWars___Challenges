@@ -207,3 +207,51 @@ console.log(generateHashtag("code" + " ".repeat(140) + "wars")); */
 ///////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
+
+//[EXERCISE] Who has the most money?
+//link: https://www.codewars.com/kata/528d36d7cc451cd7e4000339/train/javascript
+
+class Student {
+  constructor(name, fives, tens, twenties) {
+    this.name = name;
+    this.fives = fives;
+    this.tens = tens;
+    this.twenties = twenties;
+  }
+}
+
+const andy = new Student("Andy", 0, 0, 2);
+const stephen = new Student("Stephen", 0, 4, 0);
+const eric = new Student("Eric", 8, 1, 0);
+const david = new Student("David", 2, 0, 1);
+const phil = new Student("Phil", 0, 2, 1);
+const cam = new Student("Cameron", 2, 2, 0);
+const geoff = new Student("Geoff", 0, 3, 0);
+const arr = [david, cam, geoff];
+//console.log(...arr);
+
+//1. sommare tutti i risultati di cinquine,decine,ventine
+//2. associarle ad un nome
+//3. ordinarli dal piu' grande al piu' piccolo
+//4. confrontare tra loro i numeri, se c'è un numero massimo ritornarlo con il nome associato, se tutti i numeri sono uguali ritornare 'all'
+
+function mostMoney(students) {
+  if (students.length === 1) {
+    return students[0].name;
+  } //Check if there is a single student
+
+  const total = students.map((v) => {
+    return [v.fives * 5 + v.tens * 10 + v.twenties * 20, v.name];
+  }); //Sum all value with these names
+  console.log(total);
+  const sortedArr = total.sort((a, b) => b[0] - a[0]); //Sort from bigger to smaller
+  console.log(sortedArr);
+
+  if (sortedArr.every((el, _, array) => el[0] === array[0][0])) {
+    return "all"; //Check if ALL value are the same
+  } else {
+    return sortedArr[0][1];
+  }
+}
+
+console.log(mostMoney(arr));
