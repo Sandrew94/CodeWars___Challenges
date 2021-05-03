@@ -169,3 +169,41 @@ function findNextSquare(sq) {
 ///////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
+
+//[EXERCISE] The Hashtag Generator
+//link: https://www.codewars.com/kata/52449b062fb80683ec000024/train/javascript
+
+//It must start with a hashtag (#).
+//All words must have their first letter capitalized.
+//If the final result is longer than 140 chars it must return false.
+//If the input or the result is an empty string it must return false.
+
+//1. convert str in arr
+//2. divide arr in pieces
+//3. push # to the first element
+//4. uppercase the first letter of the first word and the others lowercase
+//5. condition if ("" || lenght > 140  || #) return false
+//6. Convert array to str
+
+/* function generateHashtag(str) {
+  const newArray = ["#"].concat(str.split(" ")); //add #
+  const result = newArray
+    .map((el) => {
+      return el.charAt(0).toUpperCase() + el.slice(1).toLowerCase();
+    })
+    .join(""); //First character uppercase and the other in lowercase
+
+  if (result === "" || result.length > 140 || result === "#") {
+    return false;
+  }
+  return result;
+}
+
+console.log(generateHashtag("Codewars is nice"));
+console.log(generateHashtag("a".repeat(140)));
+console.log(generateHashtag("Code wars"));
+console.log(generateHashtag("code" + " ".repeat(140) + "wars")); */
+
+///////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
