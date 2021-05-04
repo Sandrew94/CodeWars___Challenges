@@ -211,7 +211,7 @@ console.log(generateHashtag("code" + " ".repeat(140) + "wars")); */
 //[EXERCISE] Who has the most money?
 //link: https://www.codewars.com/kata/528d36d7cc451cd7e4000339/train/javascript
 
-class Student {
+/* class Student {
   constructor(name, fives, tens, twenties) {
     this.name = name;
     this.fives = fives;
@@ -254,4 +254,53 @@ function mostMoney(students) {
   }
 }
 
-console.log(mostMoney(arr));
+console.log(mostMoney(arr)); */
+
+///////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+//[EXERCISE] Pete, the baker
+//link: https://www.codewars.com/kata/525c65e51bf619685c000059/train/javascript
+
+//returns the maximum number of cakes Pete can bake (integer)
+
+// take the keys from objects
+// map all ingridients with available / recipe
+// use math.floor to round numbers
+// take the minimum value
+
+//MY SOLUTION
+/* function cakes(recipe, available) {
+  Object.values(available).sort((a, b) => b - a);
+  Object.values(recipe).sort((a, b) => b - a);
+
+  return Math.min(
+    ...Object.keys(recipe)
+      .sort((a, b) => b - a)
+      .map((ingr) => {
+        const howManyCake = available[ingr] / recipe[ingr];
+        return Math.floor(howManyCake || 0);
+      })
+  );
+} */
+
+/* 
+
+  //NOT MINE
+
+function cakes(recipe, available) {
+  return Object.keys(recipe).reduce(function (val, ingredient) {
+    return Math.min(
+      Math.floor(available[ingredient] / recipe[ingredient] || 0),
+      val
+    );
+  }, Infinity);
+} */
+
+/* console.log(
+  cakes(
+    { apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100 },
+    { sugar: 500, flour: 2000, milk: 2000 }
+  )
+); */
